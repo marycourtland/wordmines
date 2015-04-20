@@ -12,4 +12,4 @@ $(document).ready(function() {
   game.container.on('death', function() {
     $(".wordmine").fadeOut(2000);
   })
-}
+})
