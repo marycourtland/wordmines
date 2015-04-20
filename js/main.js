@@ -9,18 +9,8 @@ $(document).ready(function() {
     return (new game.Wordmine(wordlist)).createAt(randXY(xy(0, 0), getGameSize()));
   })
 
-  function tick() {
-    // calculate fps
-    var t = (new Date()).getTime();
-    game.fps = 1000/(t - game.t);
-    game.t = t;
-    game.frame += 1;
-    window.requestAnimationFrame(tick);
-  }
-
-  game.frame = 0;
-  game.fps = 0;
-  game.t = (new Date()).getTime();
-  tick();
+  game.container.on('death', function() {
+    $(".wordmine").fadeOut(2000);
+  })
 
 })

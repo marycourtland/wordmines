@@ -1,11 +1,9 @@
-window.game = window.game || {};
+
 
 window.game.settings = {
   player_speed: 20,
-
   max_wordmine_size: 120,
   min_wordmine_distance: 5,
-
 
   // maps length of word sequence to font sizes (in px)
   wordmine_sizes: {

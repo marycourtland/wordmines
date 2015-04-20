@@ -16,7 +16,12 @@ game.Wordmine.prototype.createAt = function(pos) {
   this.size = xy(0,0);
   this.moveTo(pos);
   this.redraw();
+  this.initEvents();
   return this;
+}
+
+game.Wordmine.prototype.initEvents = function() {
+  // uh nothing here yet I guess
 }
 
 game.Wordmine.prototype.move = function(dpos) {
@@ -39,15 +44,40 @@ game.Wordmine.prototype.recalculateSize = function() {
   this.size.y = parseInt(this.avatar.css('height'));  
 }
 
-game.Wordmine.prototype.triggerNextStage = function() {
+game.Wordmine.prototype.nextStage = function() {
   if (this.stage > this.words.length || this.distanceFromPlayer() > this.getNextDistance()) { return; }
   this.stage += 1;
   this.redraw();
+  this.checkGameEvents();
 
   var _this = this;
   window.setTimeout(function() {
-    _this.triggerNextStage();
+    _this.nextStage();
   }, 1000);
+}
+
+game.Wordmine.prototype.checkGameEvents = function() {
+  for (var event in game.events) {
+    console.debug(event, this.getWord(), this.getWord().match(game.events[event]))
+    if (this.getWord().match(game.events[event])) { game.container.trigger(event); }
+  }
+}
+
+// ------------
+
+game.Wordmine.prototype.getWord = function() {
+  if (this.stage >= this.words.length) { return this.words[this.words.length - 1]; }
+  return this.words[this.stage];
+}
+
+game.Wordmine.prototype.getSize = function() {
+  if (this.stage >= this.fontsizes.length) { return game.settings.max_wordmine_size; }
+  return this.fontsizes[this.stage];
+}
+
+game.Wordmine.prototype.getNextDistance = function() {
+  if (this.stage >= this.distances.length) { return game.settings.min_wordmine_distance; }
+  return this.distances[this.stage];
 }
 
 game.Wordmine.prototype.getBbox = function() {
@@ -74,22 +104,4 @@ game.Wordmine.prototype.distanceFromPlayer = function() {
   if (xstate === 1 && ystate === -1) {  return distance(game.player.pos, xy(bbox.x2, bbox.y1)); } // northeast of bbox
   if (xstate === -1 && ystate === 1) {  return distance(game.player.pos, xy(bbox.x1, bbox.y2)); } // southwest of bbox
   if (xstate === 1 && ystate === 1) {   return distance(game.player.pos, xy(bbox.x2, bbox.y2)); } // southeast of bbox
-}
-
-
-// ------------
-
-game.Wordmine.prototype.getWord = function() {
-  if (this.stage >= this.words.length) { return this.words[this.words.length - 1]; }
-  return this.words[this.stage];
-}
-
-game.Wordmine.prototype.getSize = function() {
-  if (this.stage >= this.fontsizes.length) { return game.settings.max_wordmine_size; }
-  return this.fontsizes[this.stage];
-}
-
-game.Wordmine.prototype.getNextDistance = function() {
-  if (this.stage >= this.distances.length) { return game.settings.min_wordmine_distance; }
-  return this.distances[this.stage];
 }

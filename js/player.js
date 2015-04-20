@@ -28,7 +28,7 @@ game.player = {
 
   move: function(dpos) {
     this.moveTo(xy(this.pos.x + dpos.x, this.pos.y + dpos.y));
-    game.wordmines.map(function(wordmine) { wordmine.triggerNextStage(); })
+    game.wordmines.map(function(wordmine) { wordmine.nextStage(); })
   },
 
   moveTo: function(pos) {
