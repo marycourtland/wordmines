@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript" src = "js/lib/math2D.js"></script>
+    <script type="text/javascript" src = "js/lib/drawing.js"></script>
+    <script type="text/javascript" src = "js/lib/colors.js"></script>
+    <script type="text/javascript" src = "js/lib/utility.js"></script>
+    <script type="text/javascript" src = "js/lib/mouse.js"></script>
+
+    <script type="text/javascript" src = "js/keyboard.js"></script>
+    <script type="text/javascript" src = "js/settings.js"></script>
+    <script type="text/javascript" src = "js/utils.js"></script>
+    <script type="text/javascript" src = "js/words.js"></script>
+    <script type="text/javascript" src = "js/main.js"></script>
+    <script type="text/javascript" src = "js/player.js"></script>
+    <script type="text/javascript" src = "js/wordmine.js"></script>
+    <title>wordmines</title>
+    <style>
+      html {
+        overflow: hidden;
+      }
+
+      #game {
+        background-color:black;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      #game * {
+        position: absolute;
+      }
+
+      #player {
+        background-image: url("images/player.png");
+        height: 50px;
+        width: 50px;
+      }
+
+      .wordmine {
+        color: white;
+        text-transform: uppercase;
+        font: 14px Arial;
+      }
+    </style>
+  </head>
+  
+  <body>
+    <div id="game"></div>
+  </body>
+</html>
