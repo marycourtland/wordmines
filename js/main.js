@@ -13,4 +13,7 @@ $(document).ready(function() {
     $(".wordmine").fadeOut(2000);
   })
 
+game.container.on("click", function() {
+game.player.move(xy(20,20));
+
 })
