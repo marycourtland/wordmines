@@ -6,5 +6,6 @@ window.game.words = [
   ['sight', 'knowledge', 'power', 'death'],
   ['words', 'misunderstanding', 'intent to kill', 'death'],
   ['crayons', 'hot wax', '3rd degree burns', 'death'],
-  ['yo-yo', 'sudden strangling', 'death']
+  ['yo-yo', 'sudden strangling', 'death'],
+  ['sunshine', 'kitties', 'life']
 ]
