@@ -14,6 +14,8 @@
     <style>
       html {
         overflow: hidden;
+        color: white;
+        font-family: Arial, sans-serif;
       }
 
       #game {
@@ -39,12 +41,19 @@
       .wordmine {
         color: white;
         text-transform: uppercase;
-        font: 14px Arial;
+        font-size: 14px;
+      }
+      
+      #game-message {
+        position: absolute;
+        top: 0;
+        left: 0;
       }
     </style>
   </head>
   
   <body>
     <div id="game"></div>
+    <span id="game-message">You died. <a>Replay</a></span>
   </body>
 </html>
