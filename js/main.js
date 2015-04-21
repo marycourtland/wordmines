@@ -4,7 +4,7 @@ $(document).ready(function() {
   function init() {
     game.container = $("#game");
     game.keyboard.init();
-    game.player.createAt(xy(50, 50));
+    game.player.createAt(xy(getGameSize().x/2, getGameSize().y/2));
   
     game.wordmines = game.words.map(function(wordlist) {
       return (new game.Wordmine(wordlist)).createAt(randXY(xy(0, 0), getGameSize()));
@@ -22,11 +22,12 @@ $(document).ready(function() {
   
   game.container.on('death', function() {
     $(".wordmine").fadeOut(2000);
-    $("#game-message").css('top', getGameSize().x).css('left', getGameSize().y).fadeIn(2000);
+    $("#game-message").css('top', getGameSize().x/2).css('left', getGameSize().y/2).fadeIn(2000);
   })
   
   $("#game-message a").on("click", function() {
     cleanup();
     init();
+    $("#game-message).hide();
   })
 })
