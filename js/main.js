@@ -13,6 +13,10 @@ $(document).ready(function() {
   
   function cleanup() {
     game.player.avatar.remove();
+    game.player.off('key_UP');
+    game.player.off('key_DOWN');
+    game.player.off('key_LEFT');
+    game.player.off('key_RIGHT');
     game.wordmines.forEach(function(wordmine) {
       wordmine.avatar.remove();
     })
