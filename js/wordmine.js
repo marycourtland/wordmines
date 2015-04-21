@@ -58,7 +58,6 @@ game.Wordmine.prototype.nextStage = function() {
 
 game.Wordmine.prototype.checkGameEvents = function() {
   for (var event in game.events) {
-    console.debug(event, this.getWord(), this.getWord().match(game.events[event]))
     if (this.getWord().match(game.events[event])) { game.container.trigger(event); }
   }
 }
