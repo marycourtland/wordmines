@@ -32,6 +32,6 @@ $(document).ready(function() {
   $("#game-message a").on("click", function() {
     cleanup();
     init();
-    $("#game-message).hide();
+    $("#game-message").hide();
   })
 })
